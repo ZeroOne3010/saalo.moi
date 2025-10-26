@@ -25,12 +25,13 @@
 
     li {
       opacity: 1;
-      transition: opacity 5s ease;
+      transition: opacity 4.5s ease;
     }
 
     li.blog-link a {
       display: inline-block;
-      transition: transform 5s ease;
+      transform: scale(1); /* initial state */
+      transition: transform 4.5s ease;
     }
 
     body.redirecting li:not(.blog-link) {
@@ -52,9 +53,10 @@
     }
   </style>
   <script>
-    // Start animation right after DOM loads
     window.addEventListener("DOMContentLoaded", () => {
-      document.body.classList.add("redirecting");
+      requestAnimationFrame(() => {
+        document.body.classList.add("redirecting");
+      });
     });
   </script>
 </head>
