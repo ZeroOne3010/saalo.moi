@@ -17,6 +17,30 @@
       margin-left: auto;
       margin-right: auto;
     }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      opacity: 1;
+      transition: opacity 5s ease;
+    }
+
+    li.blog-link a {
+      display: inline-block;
+      transition: transform 5s ease;
+    }
+
+    body.redirecting li:not(.blog-link) {
+      opacity: 0.2;
+    }
+
+    body.redirecting li.blog-link a {
+      transform: scale(1.5);
+    }
+
     @media (prefers-color-scheme: dark) {
       body {
         background-color: #000;
@@ -27,11 +51,17 @@
       }
     }
   </style>
+  <script>
+    // Start animation right after DOM loads
+    window.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("redirecting");
+    });
+  </script>
 </head>
 <body>
   <b>Ville</b>
   <ul>
-    <li><a href="https://ville.saalo.moi/">Blog</a></li>
+    <li class="blog-link"><a href="https://ville.saalo.moi/">Blog</a></li>
     <li><a href="https://github.com/ZeroOne3010">GitHub</a></li>
     <li><a href="https://bsky.app/profile/ville.saalo.moi">Bluesky</a></li>
     <li><a href="https://www.linkedin.com/in/villesaalo">LinkedIn</a></li>
